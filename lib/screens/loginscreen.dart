@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frist/cubits/chatCubit/chat_cubit.dart';
 import 'package:frist/cubits/loginCubit/login_cubit.dart';
 import 'package:frist/helper/show_snack_bar.dart';
 import 'package:frist/widgets/custombottun.dart';
@@ -16,19 +17,17 @@ class LoginScreen extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginLoading) {
-        
         } else if (state is LoginSuccess) {
+          BlocProvider.of<ChatCubit>(context).getmeesages();
 
           Navigator.pushNamed(context, 'homescreen');
-           
         } else if (state is LoginFailure) {
           showsnackbar(context, state.errorMassege);
-      
         }
       },
       builder: (context, State) => SafeArea(
         child: ModalProgressHUD(
-       inAsyncCall: State is LoginLoading,
+          inAsyncCall: State is LoginLoading,
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.white,

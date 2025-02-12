@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frist/cubits/loginCubit/login_cubit.dart';
 import 'package:frist/cubits/rigesterCubit/register_cubit.dart';
 import 'package:frist/helper/show_snack_bar.dart';
 import 'package:frist/widgets/custombottun.dart';
